@@ -1,0 +1,11 @@
+development:
+  adapter: mysql2
+  database: wallet_development
+  pool: 5
+  username: root
+
+test:
+  adapter: mysql2
+  database: wallet_test
+  pool: 5
+  username: root
