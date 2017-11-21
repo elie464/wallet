@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Account, type: :model do
-  let (:entity) {build(:entity)}
+  let (:owner) {build(:entity)}
   let (:account) {build(:account)}
 
   it "is valid" do
@@ -9,7 +9,7 @@ RSpec.describe Account, type: :model do
   end
 
   it "has entity" do
-    expect(account.entity).not_to be_nil
+    expect(account.owner).not_to be_nil
   end
 
   it "has balance >= 0" do

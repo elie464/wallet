@@ -1,8 +1,14 @@
 <div class="container margin-top-50">
   <div class="row margin-top-50 text-center">
     <div class="col-xs-12 col-md-12">
+      <%= render 'shared/flash' %>
       <h1><%= @entity.name %></h1>
-      <h3><%= @entity.type %></h3>
+      <h4><%= @entity.type %></h4>
+    </div>
+  </div>
+  <div class="row margin-top-50 text-center">
+    <div class="col-xs-12 col-md-12">
+      <h1>Balance: <%= @entity.account.balance %></h1>
     </div>
   </div>
 </div>

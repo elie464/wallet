@@ -1,0 +1,17 @@
+<div class="container margin-top-50">
+  <div class="row margin-top-50 text-center">
+    <div class="col-xs-12 col-md-12">
+      <div class="margin-top-20 margin-bottom-50">
+        <h1>Edit Entity</h1>
+        <%= render 'shared/flash' %>
+        <%= form_for(@entity.becomes(Entity)) do |f| %>
+            <h3>Name: <%= f.text_field :name, :value => @entity.name %></h3>
+
+            <h3>Type: <%= f.select :type, [['User', 'User'], ['Team', 'Team'], ['Stock', 'Stock']], { :selected => @entity.type}, {class: 'btn btn-default'} %></h3>
+            <br/>
+            <%= f.submit "Update", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -14,9 +14,10 @@ class EntitiesController < ApplicationController
     respond_to do |format|
       if @entity.save
         flash[:success] = "Entity created"
-        format.html { redirect_to @entity.becomes(Entity) }
+        format.html { redirect_to entity_url(@entity) }
       else
-        format.html { render action: 'new' }
+        flash[:danger] = "#{@entity.errors.full_messages.first}"
+        format.html { redirect_to entities_url }
       end
     end
   end
@@ -31,20 +32,22 @@ class EntitiesController < ApplicationController
     respond_to do |format|
       if @entity.update_attributes(entity_params)
         flash[:success] = "Entity updated"
-        format.html { redirect_to @entity }
+        format.html { redirect_to entity_url(@entity) }
       else
+        flash[:danger] = "#{@entity.errors.full_messages.first}"
         format.html { render action: 'edit' }
       end
     end
   end
 
   def destroy
+
     respond_to do |format|
       if @entity.destroy
-        flash[:success] = "Entity deleted"
-        format.html { redirect_to root_url }
+        format.html { redirect_to entities_url }
       else
-        format.html { redirect_to @factcheck }
+        flash[:danger] = "#{@entity.errors.full_messages.first}"
+        format.html { redirect_to entities_url }
       end
     end
   end

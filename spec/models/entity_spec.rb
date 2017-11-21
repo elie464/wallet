@@ -16,6 +16,12 @@ RSpec.describe Entity, type: :model do
     expect(["User", "Team", "Stock"]).to include(entity.type)
   end
 
+  it "creates an account" do
+    entity = create(:entity)
+    expect(entity.account).not_to be_nil
+    expect(entity.account.balance).to eq(0)
+  end
+
   describe "team" do
     let(:team) {build(:team)}
 

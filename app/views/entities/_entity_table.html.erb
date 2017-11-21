@@ -2,7 +2,8 @@
   <thead>
     <th class="text-center">Name</th>
     <th class="text-center">Type</th>
-    <th class="text-center">Created</th>
+    <th class="text-center">Balance</th>
+    <th class="text-center">Options</th>
   </thead>
   <tbody>
     <% @entities.each do |entity| %>
@@ -14,7 +15,13 @@
         <p><%= entity.type %></p>
       </td>
       <td>
-        <p><%= entity.created_at %></p>
+        <p><%= entity.account.balance %></p>
+      </td>
+      <td>
+        <p>
+          <%= link_to 'Edit', edit_entity_url(entity), class: 'btn btn-primary' %>
+          <%= link_to 'Delete', entity_url(entity), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>
+        </p>
       </td>
     </tr>
     <% end %>

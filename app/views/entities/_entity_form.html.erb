@@ -1,6 +1,8 @@
-<h2>New Entity</h2>
-<%= form_for(Entity.new) do |f| %>
-  Name: <%= f.text_field :name, class: 'margin-right-10' %>
-  Type: <%= f.select :type, [['User', 'User'], ['Team', 'Team'], ['Stock', 'Stock']], { include_blank: 'Select'}, {class: 'btn btn-default dropdown-toggle'} %>
-  <%= f.submit "Create", class: "btn btn-primary margin-left-10" %>
-<% end %>
+<div class="margin-top-20 margin-bottom-50">
+  <%= render 'shared/flash' %>
+  <%= form_for(Entity.new) do |f| %>
+    Name: <%= f.text_field :name, class: 'margin-right-10' %>
+    Type: <%= f.select :type, [['User', 'User'], ['Team', 'Team'], ['Stock', 'Stock']], { include_blank: 'Select'}, {class: 'btn btn-default'} %>
+    <%= f.submit "Create", class: "btn btn-primary margin-left-10" %>
+  <% end %>
+</div>
