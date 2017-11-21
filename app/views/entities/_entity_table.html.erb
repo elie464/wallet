@@ -1,0 +1,23 @@
+<table class="table table-responsive">
+  <thead>
+    <th class="text-center">Name</th>
+    <th class="text-center">Type</th>
+    <th class="text-center">Created</th>
+  </thead>
+  <tbody>
+    <% @entities.each do |entity| %>
+    <tr>
+      <td>
+        <p><%= link_to entity.name, entity_url(entity)%></p>
+      </td>
+      <td>
+        <p><%= entity.type %></p>
+      </td>
+      <td>
+        <p><%= entity.created_at %></p>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+
+</table>
