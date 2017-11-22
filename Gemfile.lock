@@ -214,7 +214,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-sass
-  capybara (~> 2.13)
+  capybara
   database_cleaner
   factory_bot_rails
   guard-rspec
