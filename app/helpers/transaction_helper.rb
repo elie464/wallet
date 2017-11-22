@@ -4,16 +4,14 @@ module TransactionHelper
       when nil
         if transaction_target == entity_account
           return "Deposit"
-        elsif transaction_target != entity_account
-          return transaction_target.owner.nil? ? "Transferred from #{transaction_target.owner.name}" : "Transferred from (removed)"
         end
       else
         if transaction_target == nil
           return "Withdraw"
         elsif transaction_target == entity_account
-          return transaction_target.owner.nil? ? "Tranferred from #{transaction_source.owner.name}" : "Transferred from (removed)"
-        elsif transaction_target != entity_account
-          return transaction_target.owner.nil? ? "Transfer to #{transaction_target.owner.name}" : "Transferred to (removed)"
+          return transaction_source.owner.nil? ?  "Transferred from (removed)" : "Tranferred from #{transaction_source.owner.name}"
+        elsif transaction_source == entity_account
+          return transaction_target.owner.nil? ? "Transferred to (removed)" : "Transfer to #{transaction_target.owner.name}"
         end
       end
   end
