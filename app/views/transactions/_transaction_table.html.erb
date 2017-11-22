@@ -8,10 +8,10 @@
   <% @transactions.each do |transaction| %>
       <tr>
         <td>
-          <p><%= link_to transaction.source.owner.name, entity_url(transaction.source.owner) %></p>
+          <p><%= transaction.source ? (link_to transaction.source.owner.name, entity_url(transaction.source.owner)) : "Nil" %></p>
         </td>
         <td>
-          <p><%= link_to transaction.target.owner.name, entity_url(transaction.target.owner) %></p>
+          <p><%= transaction.target ? (link_to transaction.target.owner.name, entity_url(transaction.target.owner)) : "Nil" %></p>
         </td>
         <td>
           <p><%= transaction.amount %></p>

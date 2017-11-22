@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171122032357) do
+ActiveRecord::Schema.define(version: 20171122051634) do
 
   create_table "accounts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "owner_id", null: false
@@ -31,8 +31,8 @@ ActiveRecord::Schema.define(version: 20171122032357) do
     t.decimal "amount", precision: 10, scale: 2, default: "0.0", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "source_id", null: false
-    t.integer "target_id", null: false
+    t.integer "source_id"
+    t.integer "target_id"
   end
 
 end

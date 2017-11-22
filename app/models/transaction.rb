@@ -1,7 +1,7 @@
 class Transaction < ApplicationRecord
-  belongs_to :source, :class_name => 'Account'
-  belongs_to :target, :class_name => 'Account'
-  validates_presence_of :source, :target, :amount
+  belongs_to :source, :class_name => 'Account', optional: true
+  belongs_to :target, :class_name => 'Account', optional: true
+  validates_presence_of :amount
   validates_numericality_of :amount, :greater_than_or_equal_to => 0
   validate :different_entities
   validate :enough_funds
@@ -11,7 +11,7 @@ class Transaction < ApplicationRecord
   end
 
   def enough_funds
-    self.errors.add(:base, 'Source does not have enough funds') if source.balance < amount
+    self.errors.add(:base, 'Source does not have enough funds') if source && source.balance < amount
   end
 
 end
