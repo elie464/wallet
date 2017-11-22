@@ -23,7 +23,7 @@ RSpec.describe Entity, type: :model do
   end
 
   describe "team" do
-    let(:team) {build(:team)}
+    let(:team) {build(:entity2)}
 
     it "is valid" do
       expect(team.valid?).to be true

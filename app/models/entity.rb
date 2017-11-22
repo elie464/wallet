@@ -8,4 +8,6 @@ class Entity < ApplicationRecord
     new_account = Account.create!(owner: self)
     new_account.save!
   end
+
+  delegate :id, to: :account, prefix: true
 end

@@ -13,7 +13,6 @@ class EntitiesController < ApplicationController
     @entity = Entity.new(entity_params)
     respond_to do |format|
       if @entity.save
-        flash[:success] = "Entity created"
         format.html { redirect_to entity_url(@entity) }
       else
         flash[:danger] = "#{@entity.errors.full_messages.first}"
@@ -31,7 +30,6 @@ class EntitiesController < ApplicationController
   def update
     respond_to do |format|
       if @entity.update_attributes(entity_params)
-        flash[:success] = "Entity updated"
         format.html { redirect_to entity_url(@entity) }
       else
         flash[:danger] = "#{@entity.errors.full_messages.first}"

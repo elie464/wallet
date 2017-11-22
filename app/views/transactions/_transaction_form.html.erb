@@ -1,0 +1,9 @@
+<div class="margin-top-40 margin-bottom-50">
+  <%= render 'shared/flash' %>
+  <%= form_for(Transaction.new) do |f| %>
+      <%= f.collection_select(:source_id, Entity.all, :account_id, :name, {include_blank: 'Source'}, {class: 'btn btn-default'}) %>
+      <%= f.collection_select(:target_id, Entity.all, :account_id, :name, {include_blank: 'Target'}, {class: 'btn btn-default'}) %>
+      <%= f.text_field :amount %>
+      <%= f.submit "Transfer", class: "btn btn-primary margin-left-10" %>
+  <% end %>
+</div>
