@@ -1,5 +1,7 @@
 # Wallet
 
+Demo: http://wallet-dev.us-west-2.elasticbeanstalk.com/
+
 Simple internal wallet web app
 
 The app is a wallet that allows the user to create Entities, and transfer/deposit/withdraw transcations to and from these Entities.
