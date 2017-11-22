@@ -3,7 +3,7 @@
   <%= form_for(Transaction.new) do |f| %>
       <%= f.collection_select(:source_id, Entity.all, :account_id, :name, {include_blank: 'Source'}, {class: 'btn btn-default'}) %>
       <%= f.collection_select(:target_id, Entity.all, :account_id, :name, {include_blank: 'Target'}, {class: 'btn btn-default'}) %>
-      <%= f.text_field :amount %>
+      <%= f.text_field :amount, type: "number", step: "0.01", required: true %>
       <%= f.submit "Transfer", class: "btn btn-primary margin-left-10" %>
   <% end %>
 </div>

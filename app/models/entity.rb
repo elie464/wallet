@@ -9,5 +9,9 @@ class Entity < ApplicationRecord
     new_account.save!
   end
 
-  delegate :id, to: :account, prefix: true
+  delegate :id, :balance, to: :account, prefix: true
+
+  def get_transactions
+    Transaction.where("source_id = ? or target_id = ?", self.account_id, self.account_id).order('created_at desc')
+  end
 end

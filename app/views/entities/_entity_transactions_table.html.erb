@@ -1,0 +1,35 @@
+<div class="margin-top-50">
+  <table class="table table-responsive">
+    <thead>
+    <th class="text-center">Transaction ID</th>
+    <th class="text-center">Debit</th>
+    <th class="text-center">Credit</th>
+    <th class="text-center">Balance</th>
+    <th class="text-center">Date</th>
+    </thead>
+    <tbody>
+    <% current_balance = @entity.account_balance %>
+    <% @transactions.each do |transaction| %>
+        <tr>
+          <td>
+            <p><%= transaction.id %></p>
+          </td>
+          <td>
+            <p><%= display_debit_or_credit(transaction.source, @entity.account, transaction.amount) %></p>
+          </td>
+          <td>
+            <p><%= display_debit_or_credit(transaction.target, @entity.account, transaction.amount) %></p>
+          </td>
+          <td>
+            <p><%= current_balance %></p>
+            <% current_balance = update_current_balance(transaction.source, @entity.account, current_balance, transaction.amount) %>
+          </td>
+          <td width="25%">
+            <%= transaction.created_at.strftime("#{transaction.created_at.day.ordinalize} %b %Y %r") %>
+          </td>
+        </tr>
+    <% end %>
+    </tbody>
+
+  </table>
+</div>

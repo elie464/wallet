@@ -9,11 +9,13 @@ class TransactionsController < ApplicationController
 
   def create
     @transaction = Transaction.new(transaction_params)
+    transaction_service = TransactionService.new
+
     respond_to do |format|
-      if @transaction.save
+      if transaction_service.transfer(@transaction)
         format.html { redirect_to transactions_url }
       else
-        flash[:danger] = "#{@transaction.errors.full_messages.first}"
+        flash[:danger] = "#{transaction_service.error}"
         format.html { redirect_to transactions_url }
       end
     end

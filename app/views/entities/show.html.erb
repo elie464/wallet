@@ -9,6 +9,9 @@
   <div class="row margin-top-50 text-center">
     <div class="col-xs-12 col-md-12">
       <h1>Balance: <%= @entity.account.balance %></h1>
+
+      <%= render 'entities/entity_transactions_table' %>
+
     </div>
   </div>
 </div>

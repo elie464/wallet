@@ -22,6 +22,7 @@ class EntitiesController < ApplicationController
   end
 
   def show
+    @transactions = @entity.get_transactions
   end
 
   def edit
