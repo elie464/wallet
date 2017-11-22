@@ -2,6 +2,7 @@
   <table class="table table-responsive">
     <thead>
     <th class="text-center">Transaction ID</th>
+    <th class="text-center">Transaction Type</th>
     <th class="text-center">Debit</th>
     <th class="text-center">Credit</th>
     <th class="text-center">Balance</th>
@@ -13,6 +14,9 @@
         <tr>
           <td>
             <p><%= transaction.id %></p>
+          </td>
+          <td>
+            <p><%= display_transaction_type(transaction.source, transaction.target, @entity.account) %></p>
           </td>
           <td>
             <p><%= display_debit_or_credit(transaction.source, @entity.account, transaction.amount) %></p>
