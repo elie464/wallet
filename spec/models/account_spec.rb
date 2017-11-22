@@ -10,6 +10,7 @@ RSpec.describe Account, type: :model do
 
   it "has entity" do
     expect(account.owner).not_to be_nil
+    expect(account.owner.present?).to be true
   end
 
   it "has balance >= 0" do

@@ -8,10 +8,18 @@
   <% @transactions.each do |transaction| %>
       <tr>
         <td>
-          <p><%= transaction.source ? (link_to transaction.source.owner.name, entity_url(transaction.source.owner)) : "Nil" %></p>
+          <% if transaction.source %>
+            <p><%= transaction.source.owner ? (link_to transaction.source.owner.name, entity_url(transaction.source.owner)) : "(Removed)" %></p>
+          <% else %>
+            <p>Nil</p>
+          <% end %>
         </td>
         <td>
-          <p><%= transaction.target ? (link_to transaction.target.owner.name, entity_url(transaction.target.owner)) : "Nil" %></p>
+          <% if transaction.target %>
+            <p><%= transaction.target.owner ? (link_to transaction.target.owner.name, entity_url(transaction.target.owner)) : "(Removed)" %></p>
+          <% else %>
+            <p>Nil</p>
+          <% end %>
         </td>
         <td>
           <p><%= transaction.amount %></p>

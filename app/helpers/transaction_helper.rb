@@ -5,15 +5,15 @@ module TransactionHelper
         if transaction_target == entity_account
           return "Deposit"
         elsif transaction_target != entity_account
-          return "Transferred from #{transaction_target.owner.name}"
+          return transaction_target.owner.nil? ? "Transferred from #{transaction_target.owner.name}" : "Transferred from (removed)"
         end
       else
         if transaction_target == nil
           return "Withdraw"
         elsif transaction_target == entity_account
-          return "Tranferred from #{transaction_source.owner.name}"
+          return transaction_target.owner.nil? ? "Tranferred from #{transaction_source.owner.name}" : "Transferred from (removed)"
         elsif transaction_target != entity_account
-          return "Transfer to #{transaction_target.owner.name}"
+          return transaction_target.owner.nil? ? "Transfer to #{transaction_target.owner.name}" : "Transferred to (removed)"
         end
       end
   end
@@ -25,4 +25,5 @@ module TransactionHelper
   def update_current_balance(transaction_account, entity_account, current_balance, amount)
     (transaction_account == entity_account) ? current_balance + amount : current_balance - amount
   end
+
 end

@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :account, aliases: [:source] do
     association :owner, factory: :entity, strategy: :build
-    balance "9.99"
+    balance "10.00"
   end
 
   factory :target, :class => :account do

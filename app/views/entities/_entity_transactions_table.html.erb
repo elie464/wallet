@@ -1,7 +1,6 @@
 <div class="margin-top-50">
   <table class="table table-responsive">
     <thead>
-    <th class="text-center">Transaction ID</th>
     <th class="text-center">Transaction Type</th>
     <th class="text-center">Debit</th>
     <th class="text-center">Credit</th>
@@ -12,9 +11,6 @@
     <% current_balance = @entity.account_balance %>
     <% @transactions.each do |transaction| %>
         <tr>
-          <td>
-            <p><%= transaction.id %></p>
-          </td>
           <td>
             <p><%= display_transaction_type(transaction.source, transaction.target, @entity.account) %></p>
           </td>

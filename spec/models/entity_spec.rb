@@ -22,6 +22,12 @@ RSpec.describe Entity, type: :model do
     expect(entity.account.balance).to eq(0)
   end
 
+  it "updates successfully" do
+    entity.update_attributes(name: "newname")
+    expect(entity.name).to eq("newname")
+    expect(entity.valid?).to be true
+  end
+
   describe "team" do
     let(:team) {build(:entity2)}
 

@@ -10,5 +10,17 @@
     <div class="col-xs-6 col-md-6">
       <h1><%= link_to "#{@transaction_count} Transactions", transactions_url %></h1>
     </div>
+
+    <div class="col-xs-12 col-md-12 margin-top-100">
+      <h4>The fineprint: </h4>
+      <ul>
+        <li>Duplicate names for Entities are allowed</li>
+        <li>To withdraw, set transaction target to nil</li>
+        <li>To deposit, set transaction source to nil</li>
+        <li>Transactions must have an amount greater than 0, and up to 2 decimal places</li>
+        <li>You can only transfer an amount less than or equal to transaction source account</li>
+        <li>Removing an Entity does not remove it's associated account. Transactions and balances will display (removed) to preserve records and display correct balances</li>
+      </ul>
+    </div>
   </div>
 </div>

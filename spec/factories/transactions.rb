@@ -1,7 +1,8 @@
 FactoryBot.define do
   factory :transaction do
-    association :source, factory: :account, strategy: :build
+    association :source, factory: :source, strategy: :build
     association :target, factory: :target, strategy: :build
-    amount "20.00"
+    amount "5.00"
   end
+
 end

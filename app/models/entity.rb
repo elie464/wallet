@@ -1,5 +1,5 @@
 class Entity < ApplicationRecord
-  has_one :account, :as => :owner, dependent: :destroy
+  has_one :account, :as => :owner
   validates_presence_of :name, :type
 
   after_save :create_account
