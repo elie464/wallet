@@ -1,24 +1,46 @@
-# README
+# Wallet
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Simple internal wallet web app
 
-Things you may want to cover:
+The app is a wallet that allows the user to create Entities, and transfer/deposit/withdraw transcations to and from these Entities.
 
-* Ruby version
+Entities are polymorphic using STI. An Entity can be a User, Team or Stock. An Entity creates an account after_create.
 
-* System dependencies
+Transactions have a source and a target account. To withdraw, set target to nil. To deposit, set source to nil. Transactions must be greater than 0 and amount must be less than or equal to source account.
 
-* Configuration
+Front end uses Bootstrap and simple Ruby on Rails views.
 
-* Database creation
+Versions
 
-* Database initialization
+* Ruby 2.4.1 
+* Rails 5.1.4
+* MySQL
+ 
+Files of interest:
 
-* How to run the test suite
+* [Entity](app/models/entity.rb)
 
-* Services (job queues, cache servers, search engines, etc.)
+* [Account](app/models/account.rb)
 
-* Deployment instructions
+* [Transaction](app/models/transaction.rb)
 
-* ...
+* [Transactions Service](app/services/transaction_service.rb)
+
+* [Transactions Controller](app/controllers/transactions_controller.rb)
+
+* [Transfer Spec ](spec/features/transfers_spec.rb)
+
+## Installation
+
+To install, please create mysql databases:
+
+`create database wallet_development`
+
+`create database wallet_test`
+
+## Testing
+
+To run tests:
+
+`rspec`
+
