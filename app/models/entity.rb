@@ -2,7 +2,7 @@ class Entity < ApplicationRecord
   has_one :account, :as => :owner
   validates_presence_of :name, :type
 
-  after_save :create_account
+  after_create :create_account
 
   def create_account
     new_account = Account.create!(owner: self)
