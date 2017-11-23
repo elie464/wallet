@@ -4,7 +4,7 @@ Demo: http://wallet-dev.us-west-2.elasticbeanstalk.com/
 
 Simple internal wallet web app
 
-The app is a wallet that allows the user to create Entities, and transfer/deposit/withdraw transcations to and from these Entities.
+The app is a wallet that allows the user to create Entities, and transfer/deposit/withdraw transactions to and from these Entities.
 
 Entities are polymorphic using STI. An Entity can be a User, Team or Stock. An Entity creates an account after_create.
 

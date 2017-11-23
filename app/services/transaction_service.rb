@@ -11,10 +11,7 @@ class TransactionService
 
     Transaction.transaction do
       begin
-        Rails.logger.info(transaction.inspect)
         transaction.save!
-        Rails.logger.info(transaction.source)
-        Rails.logger.info(transaction.target)
         update_balance(transaction.source, -transaction.amount) if transaction.source
         update_balance(transaction.target, transaction.amount) if transaction.target
         @transaction = transaction
