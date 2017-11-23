@@ -1,5 +1,5 @@
-require 'V1/Entities'
-require 'V1/Transactions'
+require 'V1/entities'
+require 'V1/transactions'
 
 module V1
   class Base < Grape::API
