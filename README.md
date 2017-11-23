@@ -46,3 +46,9 @@ To run tests:
 
 `rspec`
 
+## API
+
+Run Swagger to see endpoints:
+
+`localhost:3000/swagger_doc`
+

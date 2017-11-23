@@ -1,8 +1,9 @@
 class TransactionService
-  attr_accessor :error
+  attr_accessor :error, :transaction
 
   def initialize
     @error = nil
+    @transaction = nil
   end
 
   def transfer(transaction)
@@ -10,9 +11,13 @@ class TransactionService
 
     Transaction.transaction do
       begin
+        Rails.logger.info(transaction.inspect)
         transaction.save!
+        Rails.logger.info(transaction.source)
+        Rails.logger.info(transaction.target)
         update_balance(transaction.source, -transaction.amount) if transaction.source
         update_balance(transaction.target, transaction.amount) if transaction.target
+        @transaction = transaction
       rescue => e
         Rails.logger.info(e)
         @error = e.to_s

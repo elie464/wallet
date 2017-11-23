@@ -1,6 +1,5 @@
 class Entity < ApplicationRecord
   has_one :account, :as => :owner
-  validates_presence_of :name, :type
 
   after_create :create_account
 
@@ -12,6 +11,6 @@ class Entity < ApplicationRecord
   delegate :id, :balance, to: :account, prefix: true
 
   def get_transactions
-    Transaction.where("source_id = ? or target_id = ?", self.account_id, self.account_id).order('created_at desc')
+    Transaction.includes(:source, :target).where("source_id = ? or target_id = ?", self.account_id, self.account_id).order('created_at desc')
   end
 end
